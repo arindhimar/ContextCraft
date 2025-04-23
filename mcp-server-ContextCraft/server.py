@@ -10,8 +10,8 @@ load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
-RAPIDAPI_KEY = "0cc3d8c429msh967ab5a4fb0a39ep1ec8d4jsnd29731211186"
-RAPIDAPI_HOST = "indian-stock-exchange-api2.p.rapidapi.com"
+RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
+RAPIDAPI_HOST = os.getenv("RAPIDAPI_HOST", "indian-stock-exchange-api2.p.rapidapi.com")
 EXCHANGE = "NSE"
 PRODUCT = "MIS"
 VARIETY = "regular"
