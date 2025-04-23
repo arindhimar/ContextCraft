@@ -1,4 +1,4 @@
-# 🎨 ContextCraft: Claude-Ready Stock Trading MCP Server
+# ContextCraft: Claude-Ready Stock Trading MCP Server
 
 > Built by **Arin Dhimar** ✨  
 > Claude-integrated 🧐 • Zerodha-powered 📈 • Python 3.10+ ✨
@@ -18,11 +18,11 @@ Speak naturally. Claude understands:
 
 ## 🔧 Features
 
-- ✅ Place **Market** or **Limit** orders
-- ✅ Query **symbols by substring**
-- ✅ Works seamlessly with Claude Desktop
-- ✅ FastMCP-compatible — zero boilerplate
-- ✅ Auto-installs `kiteconnect`
+- Place **Market** or **Limit** orders
+- Query **symbols by substring**
+- Works seamlessly with Claude Desktop
+- FastMCP-compatible — zero boilerplate
+- Auto-installs `kiteconnect`
 
 ---
 
@@ -41,7 +41,7 @@ Speak naturally. Claude understands:
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/contextcraft.git
+git clone https://github.com/arindhimar/contextcraft.git
 cd contextcraft
 ```
 
