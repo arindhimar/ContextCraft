@@ -23,6 +23,13 @@ Speak naturally. Claude understands:
 - Works seamlessly with Claude Desktop
 - FastMCP-compatible — zero boilerplate
 - Auto-installs `kiteconnect`
+- Real-time stock data integration (via Zerodha KiteConnect API)
+- Advanced portfolio management (coming soon)
+- Full integration with the Claude platform for hands-free trading
+- Auto Trade Assistant with conditions like price triggers
+- Portfolio Risk Analyzer for better decision-making
+- Earnings Calendar & Predictions for proactive trading strategies
+- Explain This Stock AI Tool to simplify stock information
 
 ---
 
@@ -86,12 +93,27 @@ Returns the sum of two numbers.
 ### `trade(symbol, side, quantity, price?)`
 Place a buy/sell order for a stock.
 
+
 | Param     | Type     | Description                            |
 |-----------|----------|----------------------------------------|
 | symbol    | `str`    | Substring or full tradingsymbol         |
 | side      | `str`    | "buy" or "sell"                         |
 | quantity  | `int`    | Number of shares                        |
 | price     | `float?` | Leave blank or say "market" for LTP     |
+
+
+### `portfolio_risk_analyzer()`
+Analyzes your portfolio’s risk by evaluating the stocks you hold, their current prices, and their market volatility.
+
+### `explain_stock(symbol)`
+Returns a simplified, AI-generated explanation of a stock, including its market trends, news, and predictions.
+
+| Param     | Type     | Description                            |
+|-----------|----------|----------------------------------------|
+| symbol    | `str`    | Substring or full tradingsymbol         |
+
+### `earnings_calendar()`
+Fetches the earnings calendar for the current or upcoming quarter, providing predictions on stock movements based on earnings announcements.
 
 ---
 

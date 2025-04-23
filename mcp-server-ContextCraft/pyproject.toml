@@ -7,5 +7,6 @@ requires-python = ">=3.10"
 dependencies = [
     "mcp[cli]>=1.6.0",
     "kiteconnect",
-    "python-dotenv"
+    "python-dotenv",
+    "requests"
 ]

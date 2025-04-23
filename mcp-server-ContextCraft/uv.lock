@@ -418,6 +418,7 @@ dependencies = [
     { name = "kiteconnect" },
     { name = "mcp", extra = ["cli"] },
     { name = "python-dotenv" },
+    { name = "requests" },
 ]
 
 [package.metadata]
@@ -425,6 +426,7 @@ requires-dist = [
     { name = "kiteconnect" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.6.0" },
     { name = "python-dotenv" },
+    { name = "requests" },
 ]
 
 [[package]]
