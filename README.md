@@ -67,6 +67,8 @@ uv pip install -e .
 ```env
 API_KEY=your_kiteconnect_key
 ACCESS_TOKEN=your_valid_access_token
+RAPIDAPI_KEY =your_valid_rapidapi_key
+RAPIDAPI_HOST = "indian-stock-exchange-api2.p.rapidapi.com"
 ```
 
 ---
@@ -86,9 +88,6 @@ uv run python server.py
 ---
 
 ## 🧰 Tools Available
-
-### `add(a, b)`
-Returns the sum of two numbers.
 
 ### `trade(symbol, side, quantity, price?)`
 Place a buy/sell order for a stock.

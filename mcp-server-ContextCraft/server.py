@@ -155,7 +155,15 @@ def get_52_week_high_low() -> Union[dict, list]:
 def auto_trade_signal(stock_name: str, condition: str, threshold: float) -> dict:
     """
     Trigger a signal when a condition matches the stock's recent data.
-    E.g., Drop of 5% in price in a day triggers "buy"
+    Example: Drop of 5% in price in a day triggers "buy"
+    
+    Parameters:
+    - stock_name: The name or symbol of the stock (e.g., 'INFY').
+    - condition: 'drop' or 'rise'.
+    - threshold: The percentage change that triggers the signal.
+
+    Returns:
+    - dict: Contains signal and reason.
     """
     url = "https://indian-stock-exchange-api2.p.rapidapi.com/price_shockers"
     headers = {
@@ -167,15 +175,27 @@ def auto_trade_signal(stock_name: str, condition: str, threshold: float) -> dict
     if response.status_code != 200:
         return {"status": "error", "message": "Failed to fetch price shockers"}
 
-    shockers = response.json()
-    for stock in shockers:
-        if stock_name.lower() in stock['symbol'].lower():
-            change = float(stock['change_percentage'].replace("%", ""))
-            if condition.lower() == "drop" and change <= -threshold:
-                return {"signal": "buy", "reason": f"{stock_name} dropped by {change}%"}
+    try:
+        data = response.json()
+    except Exception as e:
+        return {"status": "error", "message": f"Failed to parse response: {e}"}
 
-            elif condition.lower() == "rise" and change >= threshold:
-                return {"signal": "sell", "reason": f"{stock_name} rose by {change}%"}
+    # Handle response shape
+    shockers = data.get("data") or data.get("shockers") or (data if isinstance(data, list) else [])
+
+    for stock in shockers:
+        try:
+            symbol = stock.get("symbol", "").lower()
+            change_str = stock.get("change_percentage", "0").replace("%", "")
+            change = float(change_str)
+
+            if stock_name.lower() in symbol:
+                if condition.lower() == "drop" and change <= -threshold:
+                    return {"signal": "buy", "reason": f"{stock_name} dropped by {change}%"}
+                elif condition.lower() == "rise" and change >= threshold:
+                    return {"signal": "sell", "reason": f"{stock_name} rose by {change}%"}
+        except (KeyError, ValueError, TypeError):
+            continue
 
     return {"signal": "hold", "reason": "No trigger conditions met"}
 
