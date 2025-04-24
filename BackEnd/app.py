@@ -6,23 +6,9 @@ import os
 
 app = Flask(__name__)
 env = load_dotenv()
-# Set up logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logging.getLogger().setLevel(logging.DEBUG)
-# Set up logging to file
-file_handler = logging.FileHandler('app.log')
-file_handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
 
- 
-
-#get data from .env file
-# Load environment variables from .env file
 API_KEY = os.getenv("API_KEY")
 API_SECRET = os.getenv("API_SECRET")
-# API_KEY = env.get("API_KEY", "lol")
-# API_SECRET = env.get("API_SECRET", "kidding me ??")
 kite = KiteConnect(api_key=API_KEY)
 
 @app.route('/')
